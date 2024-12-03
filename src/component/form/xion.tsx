@@ -31,7 +31,7 @@ const Xion = () => {
           </div>
         </div>
         <form>
-          <button type="submit">Continue with Wallet Abstraction</button>
+          <button type="submit">Continue with  <Link to="/signup"> {'Wallet Abstraction'}</Link></button>
         </form>
       </div>
 
