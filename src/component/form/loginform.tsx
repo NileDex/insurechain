@@ -32,7 +32,7 @@ const LoginForm = () => {
         </p>
       </div>
       <p className="vio">
-        Dont have an account <Link to="/xion"> Sign up Here</Link>
+        Dont have an account <Link to="/xion"> XION</Link><Link to="/signup"> Sign up Here</Link>
       </p>
     </main>
   );
