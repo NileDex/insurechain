@@ -27,13 +27,13 @@ const SignupForm = () => {
         </form>
       </div>
       <div className="alternative-sign">
-        Signup with Goggle
+        Signup with Google
         <p>
           <FcGoogle />
         </p>
       </div>
       <p className="vio">
-        Dont have an account <Link to="/"> Login Here</Link>
+        Don't have an account <Link to="/"> Login Here</Link>
       </p>
     </main>
   );

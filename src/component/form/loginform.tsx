@@ -26,7 +26,7 @@ const LoginForm = () => {
         </form>
       </div>
       <div className="alternative-sign">
-        Continue with Goggle
+        Continue with Google
         <p>
           <FcGoogle />
         </p>

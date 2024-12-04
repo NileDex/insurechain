@@ -37,7 +37,7 @@ const Xion = () => {
       </div>
 
       <p className="vio">
-        Dont know abut Abstraction Learn More here
+        Dont know about Abstraction <Link>Learn More here</Link> 
       </p>
     </main>
   );
