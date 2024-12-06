@@ -61,7 +61,7 @@ const Xion = () => {
       </div>
 
       <p className="vio">
-        Don't know about AbstracCtion? <Link to="/">Login Here</Link>
+        Don't know about AbstracCtion?  <Link to="/">Login Here</Link>
       </p>
     </main>
   );
