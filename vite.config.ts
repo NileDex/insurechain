@@ -18,7 +18,13 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      buffer: 'buffer-es6'
+      stream: 'stream-browserify',
+      buffer: 'buffer'
+    }
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      define: { global: 'globalThis' }
     }
   }
 })
