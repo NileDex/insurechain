@@ -1,13 +1,59 @@
-import { Link } from "react-router-dom";
-import "./Form.css";
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
+import "./Form.css";
 
-const SignupForm = () => {
+interface SignupData {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const SignupForm: React.FC = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState<SignupData>({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const signupUser = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { name, email, password } = data;
+
+    try {
+      const response = await axios.post("https://insurechain-server.onrender.com/signup", {
+        name,
+        email,
+        password,
+      });
+
+      const responseData = response.data;
+
+      if (responseData.error) {
+        toast.error(responseData.error);
+      } else {
+        setData({ name: "", email: "", password: "" });
+        toast.success("Signup Successful! Welcome to InsureChain!");
+        navigate("/"); // Navigate to home after successful signup
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      toast.error("An error occurred during signup. Please try again.");
+    }
+  };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
   return (
     <main className="app">
       <div>
         <h2>Signup</h2>
-        <h4>Welcome  to Insurechain</h4>
+        <h4>Welcome to InsureChain</h4>
       </div>
       <div className="form-container">
         <div className="formlogo">
@@ -19,21 +65,44 @@ const SignupForm = () => {
             />
           </i>
         </div>
-        <form>
-          <input type="text" placeholder="Username" />
-          <input type="text" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button type="submit">Sign up | <Link to="/home"> {'>>>'}</Link></button>
+        <form onSubmit={signupUser}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Username"
+            value={data.name}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={data.email}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={data.password}
+            onChange={handleInputChange}
+            required
+          />
+          <button type="submit">
+            Sign up
+          </button>
         </form>
       </div>
       <div className="alternative-sign">
-        Signup with Goggle
+        Signup with Google
         <p>
           <FcGoogle />
         </p>
       </div>
       <p className="vio">
-        Dont have an account <Link to="/"> Login Here</Link>
+        Already have an account? <Link to="/">Login Here</Link>
       </p>
     </main>
   );

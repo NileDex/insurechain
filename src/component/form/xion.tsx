@@ -1,9 +1,30 @@
-
 import "./Form.css";
 import burnt from "../../assets/burnt.png";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Abstraxion,
+  useAbstraxionAccount,
+  useModal,
+} from "@burnt-labs/abstraxion";
+import { Button } from "@burnt-labs/ui";
 
 const Xion = () => {
+  const navigate = useNavigate();
+  const {
+    data: { bech32Address },
+    isConnected,
+  } = useAbstraxionAccount();
+  const [, setShow] = useModal();
+
+  // Redirect to dashboard if connected
+  useEffect(() => {
+    if (isConnected && bech32Address) {
+      navigate("/home");
+    }
+  }, [isConnected, bech32Address, navigate]);
+
   return (
     <main className="app">
       <div>
@@ -31,13 +52,16 @@ const Xion = () => {
             </i>
           </div>
         </div>
-        <form>
-          <button type="submit">Continue with  <Link to="/signup"> {'Wallet Abstraction'}</Link></button>
-        </form>
+       
+        <Button fullWidth onClick={() => setShow(true)} structure="base">
+          CONNECT WITH WALLET ABSTRACTION
+        </Button>
+        <Abstraxion onClose={() => setShow(false)} />
+      
       </div>
 
       <p className="vio">
-        Dont know abut Abstraction Learn More here
+        Don't know about Abstraction? <Link to="/">Login Here</Link>
       </p>
     </main>
   );
