@@ -22,10 +22,11 @@ const LoginForm: React.FC = () => {
     const { email, password } = data;
 
     try {
-      const response = await axios.post("https://insurechain-server.onrender.com/login", {
+      const response = await axios.post("https://insurechain-server.onrender.com/", {
         email,
         password,
       });
+
 
       if (response.data.error) {
         toast.error(response.data.error);
