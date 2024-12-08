@@ -79,7 +79,7 @@ const App = () => {
         <AuthProvider>
           <Routes>
             {/* Route for LoginForm */}
-            <Route path="/" element={<LoginForm />} />
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/xion" element={<Xion />} />
 

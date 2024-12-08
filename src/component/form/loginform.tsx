@@ -22,7 +22,7 @@ const LoginForm: React.FC = () => {
     const { email, password } = data;
 
     try {
-      const response = await axios.post("https://insurechain-server.onrender.com/", {
+      const response = await axios.post("https://insurechain-server.onrender.com/login", {
         email,
         password,
       });
