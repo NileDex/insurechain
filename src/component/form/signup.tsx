@@ -102,7 +102,9 @@ const SignupForm: React.FC = () => {
         </p>
       </div>
       <p className="vio">
-        Already have an account? <Link to="/">Login Here</Link>
+
+        Don't have an account <Link to="/"> Login Here</Link>
+
       </p>
     </main>
   );
