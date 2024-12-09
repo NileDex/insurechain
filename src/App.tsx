@@ -70,7 +70,8 @@ window.Buffer = Buffer;
 
 const App = () => {
   axios.defaults.baseURL = "https://insurechain-server.onrender.com";
-  axios.defaults.withCredentials = true;
+  // axios.defaults.baseURL = "https://insurechain-server.up.railway.app/";
+  axios.defaults.withCredentials = false;
 
   return (
     <>
