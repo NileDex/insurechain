@@ -16,28 +16,31 @@ const LoginForm: React.FC = () => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false); // Loading state for progress bar
 
   const loginUser = async (e: FormEvent) => {
     e.preventDefault();
     const { email, password } = data;
 
+    setLoading(true); // Show the progress bar
     try {
       const response = await axios.post("https://insurechain-server.onrender.com/login", {
         email,
         password,
       });
 
-
       if (response.data.error) {
         toast.error(response.data.error);
       } else {
         toast.success("Login successful!");
         setData({ email: "", password: "" });
-        navigate("/xion"); // Navigate to the desired page after login
+        navigate("/xion");
       }
     } catch (error) {
       console.error("Login error:", error);
       toast.error("Login failed. Please try again.");
+    } finally {
+      setLoading(false); // Hide the progress bar
     }
   };
 
@@ -47,6 +50,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <main className="app">
+      {loading && <div className="progress-bar"></div>} {/* Progress bar */}
       <div>
         <h2>Login</h2>
         <h4>Welcome back to InsureChain</h4>

@@ -18,11 +18,11 @@ const SignupForm: React.FC = () => {
     email: "",
     password: "",
   });
-
+  const [loading, setLoading] = useState(false); 
   const signupUser = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { name, email, password } = data;
-
+    setLoading(true); 
     try {
       const response = await axios.post("https://insurechain-server.onrender.com/signup", {
         name,
@@ -51,6 +51,7 @@ const SignupForm: React.FC = () => {
 
   return (
     <main className="app">
+       {loading && <div className="progress-bar"></div>} {/* Progress bar */}
       <div>
         <h2>Signup</h2>
         <h4>Welcome to InsureChain</h4>

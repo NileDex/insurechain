@@ -1,0 +1,187 @@
+{
+    "version": "0.1.0",
+    "name": "health_profile",
+    "instructions": [
+        {
+            "name": "initializeProfile",
+            "accounts": [
+                {
+                    "name": "profile",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "xionAddress",
+                    "type": "string"
+                },
+                {
+                    "name": "image",
+                    "type": "string"
+                },
+                {
+                    "name": "nationality",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "string"
+                },
+                {
+                    "name": "plan",
+                    "type": "string"
+                },
+                {
+                    "name": "hospital",
+                    "type": "string"
+                },
+                {
+                    "name": "email",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "updateProfile",
+            "accounts": [
+                {
+                    "name": "profile",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": false,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "image",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "nationality",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "state",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "plan",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "hospital",
+                    "type": {
+                        "option": "string"
+                    }
+                },
+                {
+                    "name": "email",
+                    "type": {
+                        "option": "string"
+                    }
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "HealthProfile",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "xionAddress",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "type": "string"
+                    },
+                    {
+                        "name": "nationality",
+                        "type": "string"
+                    },
+                    {
+                        "name": "state",
+                        "type": "string"
+                    },
+                    {
+                        "name": "plan",
+                        "type": "string"
+                    },
+                    {
+                        "name": "hospital",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "authority",
+                        "type": "publicKey"
+                    }
+                ]
+            }
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "NameTooLong",
+            "msg": "Name is too long"
+        },
+        {
+            "code": 6001,
+            "name": "AddressTooLong",
+            "msg": "Address is too long"
+        },
+        {
+            "code": 6002,
+            "name": "ImageUrlTooLong",
+            "msg": "Image URL is too long"
+        },
+        {
+            "code": 6003,
+            "name": "EmailTooLong",
+            "msg": "Email is too long"
+        }
+    ]
+}

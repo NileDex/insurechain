@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { MdHomeWork } from "react-icons/md";
-import { ImStatsDots } from "react-icons/im";
+import { FaWallet } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
 import { Link } from "react-router-dom";
 const Sidebar: React.FC = () => {
@@ -42,9 +42,7 @@ const Sidebar: React.FC = () => {
     <>
       <div>
         {/* Mobile Toggle Button */}
-        <div className="mtop">
-          
-        </div>
+        <div className="mtop"></div>
         <div className="mobile-toggle">
           {isMobile && (
             <button onClick={handleToggle}>
@@ -79,19 +77,23 @@ const Sidebar: React.FC = () => {
           <div className="menu-item nav-active" data-tooltip="Home">
             <Link to="/home/profile">
               {" "}
-             <a> <MdHomeWork /><span>Home</span></a>
-            </Link>
-
+             
+                {" "}
+                <MdHomeWork />
+                <span>Home</span>
             
-          </div>
-          <div className="menu-item" data-tooltip="Stats">
-            <Link to="/home/claim">
-              <a><ImStatsDots /> <span>Stats</span></a>
             </Link>
+          </div>
+          <div className="menu-item" data-tooltip="Wallets">
+            <Link to="/home/claim">
            
+                <FaWallet />
+                <span>Wallet</span>
+            
+            </Link>
           </div>
 
-          <h1 className="menu-header shortcuts">Shortcuts</h1>
+          <h1 className="menu-header soon!😀">soon!😀</h1>
           {/* <div className="menu-item" data-tooltip="Add">
             <i ></i>
             <span></span>

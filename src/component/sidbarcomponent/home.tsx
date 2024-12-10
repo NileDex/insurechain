@@ -15,6 +15,7 @@ const Home = () => {
           <Header />
         </div>
         <div className="container">
+          
           <div className="components">
             {/* This is where the nested components (Profile or Claim) will be rendered */}
             <Outlet />

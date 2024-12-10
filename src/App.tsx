@@ -58,6 +58,8 @@ import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 import { Buffer } from "buffer";
+import HealthProfile from "./component/form/healthprofile";
+import WalletConnectionProvider from "./component/web3/walletconnection";
 
 // Declare Buffer property on the window object
 declare global {
@@ -76,6 +78,7 @@ const App = () => {
   return (
     <>
       <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+      <WalletConnectionProvider >
       <Router>
         <AuthProvider>
           <Routes>
@@ -83,7 +86,7 @@ const App = () => {
             <Route path="/" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/xion" element={<Xion />} />
-
+            <Route path="/healthprofile" element={<HealthProfile/>} />
             {/* Route for Home, which includes Sidebar and Header */}
             <Route path="/home" element={<Home />}>
               {/* Default route for Profile */}
@@ -96,6 +99,8 @@ const App = () => {
           </Routes>
         </AuthProvider>
       </Router>
+      </WalletConnectionProvider>
+
     </>
   );
 };
