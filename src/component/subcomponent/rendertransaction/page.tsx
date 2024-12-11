@@ -3,6 +3,7 @@ import { useFetchTransactions } from './transaction';
 import { SimplifiedTransactionDetail } from './transaction';
 import { Connection } from '@solana/web3.js'; 
 import "./transaction.css"
+import { RiFolderForbidFill } from "react-icons/ri";
 
 const TransactionCard = () => {
   const [transactions, setTransactions] = useState<SimplifiedTransactionDetail[]>([]);
@@ -54,7 +55,7 @@ const TransactionCard = () => {
           <p className="text-gray-500">Loading transactions...</p>
         </div>
       ) : transactions.length === 0 ? (
-        <p>No transactions available</p>
+        <p className="offline"><RiFolderForbidFill /></p>
       ) : (
         transactions.map((tx) => (
           <div key={tx.signature} className="transaction">
