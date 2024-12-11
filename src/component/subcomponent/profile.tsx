@@ -4,21 +4,7 @@ import CreateProfileModal from "./CreateProfileModal";
 import HealthProfileDisplay from "./rendercard/page";
 import { useWallet } from "@solana/wallet-adapter-react";
 import TransactionCard from "./rendertransaction/page";
-import { useAuth } from "../form/AUTHENTICATION/authentication";
 const Profile = () => {
-
-  const { user, isLoading } = useAuth();
-
-  // Show loading state
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  
-
-  // Redirect to login if not authenticated
-  if (!user) {
-    return <Navigate to="/" replace />;
-  }
 
   const wallet = useWallet();
   return (
