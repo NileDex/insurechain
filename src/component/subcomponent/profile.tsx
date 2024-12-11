@@ -1,25 +1,15 @@
-import "./Profile.css";
+import "./css/Profile.css";
 import social from "../../assets/social.gif";
 import CreateProfileModal from "./CreateProfileModal";
 import HealthProfileDisplay from "./rendercard/page";
 import { useWallet } from "@solana/wallet-adapter-react";
 import TransactionCard from "./rendertransaction/page";
-import { useAuth } from "../form/AUTHENTICATION/authentication";
-import { Navigate } from "react-router-dom";
 const Profile = () => {
 
-  const { user, isLoading } = useAuth();
 
-  // Show loading state
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  
 
-  // Redirect to login if not authenticated
-  if (!user) {
-    return <Navigate to="/" replace />;
-  }
+
+
 
   const wallet = useWallet();
   return (
@@ -40,7 +30,6 @@ const Profile = () => {
         <div className="cardcontainer">
 
           <div className="profilecard">
-            <p>Welcome, {user?.name}</p>
 
             {wallet.publicKey && (
               <HealthProfileDisplay publicKey={wallet.publicKey} />

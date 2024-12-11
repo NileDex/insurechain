@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { MdHomeWork } from "react-icons/md";
 import { FaWallet } from "react-icons/fa6";
 import { IoLogOut } from "react-icons/io5";
+import { FaHospitalAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Sidebar: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -98,6 +99,14 @@ const Sidebar: React.FC = () => {
             <i ></i>
             <span></span>
           </div> */}
+           <div className="menu-item" data-tooltip="Hospitals">
+            <Link to="/home/hospital">
+           
+            <FaHospitalAlt />
+                <span>Hospital</span>
+            
+            </Link>
+          </div>
         </nav>
 
         {/* logout */}

@@ -41,7 +41,7 @@
     gap: 0.5 em;
     position: relative;
     z-index: 1;
-    background-color: #0a1128;
+    /* background-color: #0a1128; */
     font-family: 'Inter', sans-serif;  
 }
 

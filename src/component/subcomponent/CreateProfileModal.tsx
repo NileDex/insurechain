@@ -1,5 +1,5 @@
 import React, { useState, ReactNode } from 'react';
-import './Modal.css';
+import './css/Modal.css';
 import HealthProfile from '../form/healthprofile';
 
 interface ModalProps {
