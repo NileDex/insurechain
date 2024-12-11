@@ -15,6 +15,11 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
+  // Redirect to login if not authenticated
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
+
   const wallet = useWallet();
   return (
     <div className="main">
