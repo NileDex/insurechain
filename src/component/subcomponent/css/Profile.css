@@ -99,7 +99,7 @@
     height: 180px;
     border-radius: 13px;
     /* background: linear-gradient(45deg, #00ffa282, #4eb3ed98); */
-    background: url('../../assets/bg.png');
+    background: url('../../../assets/bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 15px;
@@ -130,6 +130,7 @@ detaili {
     font-size: 12px;
     gap: 2em;
     padding: 8px;
+    line-height: 30px;
 }
 
 firstattribute {
