@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { getProgram } from "../../form/connection/page";
+import { RiFolderForbidFill } from "react-icons/ri";
 import "./healthprofile.css"; // Add styles for spinner if needed
 
 interface HealthProfileData {
@@ -76,7 +77,7 @@ const HealthProfileDisplay = ({ publicKey }: { publicKey: PublicKey }) => {
   if (error) {
     return (
       <div>
-        <p className="text-gray-500">No profile created yet. Start by creating your profile.</p>
+        <p className="offline"><RiFolderForbidFill /></p>
       </div>
     );
   }

@@ -92,7 +92,7 @@ export const useFetchTransactions = () => {
     limit: number = 10
   ): Promise<SimplifiedTransactionDetail[]> => {
     if (!publicKey) {
-      throw new Error("Wallet not connected");
+      throw new Error("<RiFolderForbidFill />");
     }
 
     try {
