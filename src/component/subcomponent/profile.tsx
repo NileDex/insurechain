@@ -8,12 +8,13 @@ import { useAuth } from "../form/AUTHENTICATION/authentication";
 import { Navigate } from "react-router-dom";
 const Profile = () => {
 
-  const { user, logout, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
 
   // Show loading state
   if (isLoading) {
     return <div>Loading...</div>;
   }
+  
 
   // Redirect to login if not authenticated
   if (!user) {

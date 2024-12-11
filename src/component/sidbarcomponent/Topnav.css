@@ -359,12 +359,10 @@
 }
 
 @media (max-width: 480px) {
-
   .dropdown-menu2 {
     width: 80%; 
     padding: 20px;
   }
-
   .subb,
   .dubb {
     width: 100%; 

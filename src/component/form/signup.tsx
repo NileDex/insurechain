@@ -11,6 +11,8 @@ interface SignupData {
   password: string;
 }
 
+
+
 const SignupForm: React.FC = () => {
   const navigate = useNavigate();
   const [data, setData] = useState<SignupData>({

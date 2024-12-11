@@ -51,7 +51,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     checkLoggedIn();
   }, []);
 
-  // Logout function
+
   const logout = async () => {
     try {
       // Optional: Call backend logout endpoint if you have one
