@@ -60,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       console.error("Logout error", error);
     } finally {
       setUser(null);
-      navigate("/login");
+      navigate("/");
     }
   };
 
