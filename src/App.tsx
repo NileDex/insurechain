@@ -1,18 +1,81 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import LoginForm from "../src/component/form/loginform"; // Import your LoginForm component
+// import Home from "../src/component/sidbarcomponent/home"; // Import the Home component
+// import Claim from "../src/component/subcomponent/claim"; // Claim component
+// import SignupForm from "./component/form/signup";
+// import { AuthProvider } from "./component/form/AUTHENTICATION/authentication";
+// import Xion from "./component/form/xion";
+// import { Toaster } from "react-hot-toast";
+// import axios from "axios";
+
+// import { Buffer } from "buffer";
+// import HealthProfile from "./component/form/healthprofile";
+// import WalletConnectionProvider from "./component/web3/walletconnection";
+// import Hospital from "./component/subcomponent/hospitals";
+// import Profile from "./component/subcomponent/profile";
+
+// // Declare Buffer property on the window object
+// declare global {
+//   interface Window {
+//     Buffer: typeof Buffer;
+//   }
+// }
+
+// window.Buffer = Buffer;
+
+// const App = () => {
+//   axios.defaults.baseURL = "https://insurechain-server.onrender.com";
+//   // axios.defaults.baseURL = "https://insurechain-server.up.railway.app/";
+//   axios.defaults.withCredentials = false;
+
+//   return (
+//     <>
+//       <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+//       <WalletConnectionProvider >
+//       <Router>
+//         <AuthProvider>
+//           <Routes>
+//             {/* Route for LoginForm */}
+//             <Route path="/" element={<LoginForm />} />
+//             <Route path="/signup" element={<SignupForm />} />
+//             <Route path="/xion" element={<Xion />} />
+//             <Route path="/healthprofile" element={<HealthProfile/>} />
+           
+//             {/* Route for Home, which includes Sidebar and Header */}
+//             <Route path="/home" element={<Home />}>
+//               {/* Default route for Profile */}
+//               <Route index element={<Profile/>} />
+
+//               {/* Nested routes for Profile and Claim */}
+//               <Route path="profile" element={<Profile />} />
+//               <Route path="claim" element={<Claim />} />
+//               <Route path="hospital" element={<Hospital/>} />
+//             </Route>
+//           </Routes>
+//         </AuthProvider>
+//       </Router>
+//       </WalletConnectionProvider>
+
+//     </>
+//   );
+// };
+
+// export default App;
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import LoginForm from "../src/component/form/loginform"; // Import your LoginForm component
 import Home from "../src/component/sidbarcomponent/home"; // Import the Home component
-import Profile from "../src/component/subcomponent/profile"; // Profile component
 import Claim from "../src/component/subcomponent/claim"; // Claim component
 import SignupForm from "./component/form/signup";
 import { AuthProvider } from "./component/form/AUTHENTICATION/authentication";
 import Xion from "./component/form/xion";
 import { Toaster } from "react-hot-toast";
 import axios from "axios";
-
 import { Buffer } from "buffer";
 import HealthProfile from "./component/form/healthprofile";
 import WalletConnectionProvider from "./component/web3/walletconnection";
 import Hospital from "./component/subcomponent/hospitals";
+import Profile from "./component/subcomponent/profile";
+import NotFound from "./component/form/404";
 
 // Declare Buffer property on the window object
 declare global {
@@ -31,31 +94,36 @@ const App = () => {
   return (
     <>
       <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
-      <WalletConnectionProvider >
-      <Router>
-        <AuthProvider>
-          <Routes>
-            {/* Route for LoginForm */}
-            <Route path="/" element={<LoginForm />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route path="/xion" element={<Xion />} />
-            <Route path="/healthprofile" element={<HealthProfile/>} />
-           
-            {/* Route for Home, which includes Sidebar and Header */}
-            <Route path="/home" element={<Home />}>
-              {/* Default route for Profile */}
-              <Route index element={<Profile />} />
+      <WalletConnectionProvider>
+        <Router>
+          <AuthProvider>
+            <Routes>
+              {/* Route for LoginForm */}
+              <Route path="/" element={<LoginForm />} />
+              <Route path="/signup" element={<SignupForm />} />
+              <Route path="/xion" element={<Xion />} />
+              <Route path="/healthprofile" element={<HealthProfile />} />
 
-              {/* Nested routes for Profile and Claim */}
-              <Route path="profile" element={<Profile />} />
-              <Route path="claim" element={<Claim />} />
-              <Route path="hospital" element={<Hospital/>} />
-            </Route>
-          </Routes>
-        </AuthProvider>
-      </Router>
+              {/* Route for Home, which includes Sidebar and Header */}
+              <Route path="/home" element={<Home />}>
+                {/* Default route for Profile */}
+                <Route index element={<Profile />} />
+
+                {/* Nested routes for Profile, Claim, and Hospital */}
+                <Route path="profile" element={<Profile />} />
+                <Route path="claim" element={<Claim />} />
+                <Route path="hospital" element={<Hospital />} />
+              </Route>
+
+              {/* Route for 404 */}
+              <Route path="/404" element={<NotFound/>} />
+
+              {/* Redirect unmatched paths to 404 */}
+              <Route path="*" element={<Navigate to="/404" replace />} />
+            </Routes>
+          </AuthProvider>
+        </Router>
       </WalletConnectionProvider>
-
     </>
   );
 };

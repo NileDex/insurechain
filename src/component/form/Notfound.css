@@ -1,0 +1,73 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px; /* Add padding for smaller screens */
+  }
+  
+  .not-found h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .not-found p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Button Styles */
+  .go-home {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem; /* Default font size for the button */
+    display: inline-block;
+  }
+  
+  .go-home:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Hover effect to give a lift */
+  }
+  
+  .go-home:active {
+    transform: translateY(1px); /* Slightly depressed effect on click */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .not-found h1 {
+      font-size: 2.5rem; /* Adjust heading size for smaller screens */
+    }
+  
+    .not-found p {
+      font-size: 1rem; /* Adjust paragraph size for smaller screens */
+    }
+  
+    .go-home {
+      padding: 8px 16px; /* Smaller padding for mobile */
+      font-size: 0.9rem; /* Adjust button text size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .not-found h1 {
+      font-size: 2rem; /* Further reduce heading size for very small screens */
+    }
+  
+    .not-found p {
+      font-size: 0.9rem; /* Adjust paragraph size for very small screens */
+    }
+  
+    .go-home {
+      padding: 8px 14px; /* Even smaller padding for small screens */
+      font-size: 0.85rem; /* Further reduce button text size */
+    }
+  }
+  

@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import "./Form.css";
+import { useAuth } from "./AUTHENTICATION/authentication";
 
 interface LoginData {
   email: string;
@@ -12,6 +13,7 @@ interface LoginData {
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const {setUser} = useAuth();
   const [data, setData] = useState<LoginData>({
     email: "",
     password: "",
@@ -28,6 +30,17 @@ const LoginForm: React.FC = () => {
         email,
         password,
       });
+
+      const {user, token} = response.data;
+
+      setUser({
+        name: user.name,
+        email: user.email,
+        _id: user._id,
+      });
+
+      localStorage.setItem("auth-token", token);
+      localStorage.setItem("user", JSON.stringify(user));
 
       if (response.data.error) {
         toast.error(response.data.error);

@@ -4,7 +4,12 @@ import CreateProfileModal from "./CreateProfileModal";
 import HealthProfileDisplay from "./rendercard/page";
 import { useWallet } from "@solana/wallet-adapter-react";
 import TransactionCard from "./rendertransaction/page";
+import { useAuth } from "../form/AUTHENTICATION/authentication";
+
+
+
 const Profile = () => {
+  const {user} = useAuth();
 
   const wallet = useWallet();
   return (
@@ -25,7 +30,11 @@ const Profile = () => {
         <div className="cardcontainer">
 
           <div className="profilecard">
-
+            <div className="users">
+              <p>Welcome</p>
+            <p className="username"> {user?.name}</p>
+            </div>
+            <span className="useremail">{user?.email}</span>
             {wallet.publicKey && (
               <HealthProfileDisplay publicKey={wallet.publicKey} />
             )}
