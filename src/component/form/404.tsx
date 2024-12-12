@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import robo from "../../assets/robo.png"; // Properly import the image
-import "./NotFound.css"; // Import your CSS for styling
+import robo from "../../assets/robo.png";
+import "./404.css";
 
 const NotFound: React.FC = () => {
   return (
